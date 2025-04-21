@@ -9,7 +9,7 @@ public class Revista : Material
     {
         
     }
-    public Revista(string titulo, int ano, int edicao, string mesPublicacao):base(titulo, ano)
+    public Revista(int id, string titulo, int ano, int edicao, string mesPublicacao):base(id, titulo, ano)
     {
         Edicao = edicao;
         MesPublicacao = mesPublicacao;

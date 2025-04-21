@@ -2,6 +2,8 @@
 
 public abstract class Material
 {
+
+    public int Id { get; set; }
     public string Titulo { get; set; }
     public int Ano { get; set; }
 
@@ -9,8 +11,9 @@ public abstract class Material
     {
         
     }
-    public Material(string titulo, int ano)
+    public Material(int id, string titulo, int ano)
     {
+        Id = id;
         Titulo = titulo;
         Ano = ano;
     }

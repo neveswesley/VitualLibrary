@@ -10,7 +10,7 @@ public class Livro : Material
     {
         
     }
-    public Livro(string titulo, int ano, string autor, int paginas) :base(titulo, ano)
+    public Livro(int id, string titulo, int ano, string autor, int paginas) :base(id, titulo, ano)
     {
     Autor = autor;
     Paginas = paginas;

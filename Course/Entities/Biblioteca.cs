@@ -9,6 +9,7 @@ public class Biblioteca
         // Lista de Livros
         materiais.Add(new Livro
         {
+            Id = 1,
             Titulo = "Programação Estruturada",
             Ano = 2017,
             Autor = "Aline Marques",
@@ -17,6 +18,7 @@ public class Biblioteca
 
         materiais.Add(new Livro
         {
+            Id = 2,
             Titulo = "C# Profissional",
             Ano = 2020,
             Autor = "João Pedro Lima",
@@ -25,6 +27,7 @@ public class Biblioteca
 
         materiais.Add(new Livro
         {
+            Id = 3,
             Titulo = "Desenvolvimento Ágil com .NET",
             Ano = 2023,
             Autor = "Camila Barbosa",
@@ -33,6 +36,7 @@ public class Biblioteca
 
         materiais.Add(new Livro
         {
+            Id = 4,
             Titulo = "Introdução ao LINQ",
             Ano = 2019,
             Autor = "Rafael Gonçalves",
@@ -41,6 +45,7 @@ public class Biblioteca
 
         materiais.Add(new Livro
         {
+            Id = 5,
             Titulo = "Arquitetura de Software Moderna",
             Ano = 2022,
             Autor = "Patrícia Leal",
@@ -50,6 +55,7 @@ public class Biblioteca
         // Lista de Revistas
         materiais.Add(new Revista
         {
+            Id = 6,
             Titulo = "TechCode",
             Ano = 2021,
             Edicao = 38,
@@ -58,6 +64,7 @@ public class Biblioteca
 
         materiais.Add(new Revista
         {
+            Id = 7,
             Titulo = "Programadores BR",
             Ano = 2022,
             Edicao = 52,
@@ -66,6 +73,7 @@ public class Biblioteca
 
         materiais.Add(new Revista
         {
+            Id = 8,
             Titulo = "Revista .NET",
             Ano = 2020,
             Edicao = 29,
@@ -74,6 +82,7 @@ public class Biblioteca
 
         materiais.Add(new Revista
         {
+            Id = 9,
             Titulo = "Dev Trends",
             Ano = 2023,
             Edicao = 61,
@@ -82,6 +91,7 @@ public class Biblioteca
 
         materiais.Add(new Revista
         {
+            Id = 10,
             Titulo = "Código & Café",
             Ano = 2024,
             Edicao = 75,
@@ -93,10 +103,37 @@ public class Biblioteca
     {
         return materiais;
     }
+    public List<Livro> ObterLivros(string palavra)
+    {
+        var material = ObterTodos().OfType<Livro>().Where(x => x.Titulo.ToLower().Contains(palavra.ToLower())).ToList();
+        return material;
+    }
+    
+    public List<Livro> ObterTodosOsLivros()
+    {
+        return materiais.OfType<Livro>().ToList();
+    }
+
+
+    public List<Revista> ObterRevistas(string palavra)
+    {
+        var material = ObterTodos().OfType<Revista>().Where(x => x.Titulo.ToLower().Contains(palavra.ToLower())).ToList();
+        return material;
+    }
+    
+    public List<Revista> ObterTodasAsRevistas()
+    {
+        return materiais.OfType<Revista>().ToList();
+    }
 
     public void AdicionarMaterial(Material material)
     {
-     materiais.Add(material);   
+        materiais.Add(material);
+    }
+
+    public void RemoverMaterial(int requestId)
+    {
+       materiais.RemoveAll(x => x.Id == requestId);
     }
     
 }
